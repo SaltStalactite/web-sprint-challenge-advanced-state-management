@@ -14,6 +14,29 @@ const reducer = (state = initialState, action) => {
                 isLoading: true,
                 error: ''
             })
+        case (FETCH_SUCCESS):
+            return ({
+                ...state,
+                smurfs: action.payload,
+                isLoading: false,
+                error: ''
+            })
+        case (FETCH_ERROR):
+            return ({
+                ...state,
+                smurf: {},
+                isLoading: false,
+                error: action.payload
+            })
+        case (ADD_SMURF):
+            const smurf = {
+                ...action.payload,
+                id: Date.now()
+            }
+            return ({
+                ...state,
+                smurfs: [...state.smurfs, smurf]
+            })
         default:
             return state;
     }
