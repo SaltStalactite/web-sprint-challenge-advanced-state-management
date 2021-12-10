@@ -32,6 +32,8 @@ export const fetchError = (errorMessage) => {
     return ({ type: FETCH_ERROR, payload: errorMessage })
 }
 
+export const ADD_SMURF = 'ADD_SMURF'
+
 export const addSmurf = (smurf) => {
     return ({ type: ADD_SMURF, payload: smurf })
 }
